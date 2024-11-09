@@ -59,10 +59,7 @@ export default function Signup() {
             placeholder="Digite sua senha"
             required
           />
-          <Button
-            className="my-4 h-10 bg-red-500 p-2 flex items-center justify-center text-xl text-white border-0 rounded-lg transition-all hover:brightness-110"
-            type="submit"
-          >Cadastrar</Button>
+          <Button bgButton="red" type="submit">Cadastrar</Button>
         </form>
         <Link href="/" className="mt-4 text-white cursor-pointer">
           Já possui uma conta? Faça login
