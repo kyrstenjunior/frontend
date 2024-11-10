@@ -30,6 +30,7 @@ export default function Home() {
       })
 
       if(!response.data.token) {
+        console.log("Token não retornado");
         return
       }
 
@@ -38,7 +39,7 @@ export default function Home() {
         maxAge: expressTime,
         path: "/",
         httpOnly: false,
-        secure: process.env.NODE_ENV === "production" // quando estiver em produção, é só utilizar true nesta propriedade
+        secure: true // quando estiver em produção, é só utilizar true nesta propriedade
       })
     } catch (error) {
       console.error(error);
