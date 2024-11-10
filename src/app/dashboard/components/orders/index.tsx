@@ -1,6 +1,6 @@
 "use client"
 
-import { use } from "react"
+import { useContext } from "react"
 import { OrderProps } from "@/lib/order.type"
 import { FiRefreshCw } from "react-icons/fi"
 import ModalOrder from "@/app/dashboard/components/modal"
@@ -14,7 +14,7 @@ interface Props {
 
 function Orders({ orders }: Props) {
 
-    const { isOpen, onRequestOpen } = use(OrderContext);
+    const { isOpen, onRequestOpen } = useContext(OrderContext);
     const router = useRouter();
 
     async function handleDetailOrder(order_id: string) {
