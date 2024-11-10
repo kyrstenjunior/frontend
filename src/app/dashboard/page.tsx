@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import Orders from "@/app/dashboard/components/orders";
 
 import { getCookieServer } from "@/lib/cookieServer";
