@@ -8,7 +8,6 @@ import { Input } from "@/app/dashboard/components/ui/Input";
 import { Button } from "@/app/dashboard/components/ui/Button";
 
 import { api } from "../services/api";
-import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 export default function Home() {
@@ -35,12 +34,13 @@ export default function Home() {
       }
 
       const expressTime = 60 * 60 * 24 * 30 * 1000; // significa 30 dias
-      cookies().set("session", response.data.token, {
-        maxAge: expressTime,
-        path: "/",
-        httpOnly: false,
-        secure: true // quando estiver em produção, é só utilizar true nesta propriedade
-      })
+      document.cookie = `
+        session=${response.data.token};
+        path=/;
+        max-age=${expressTime};
+        secure;
+        samesite=strict;
+      `;
     } catch (error) {
       console.error(error);
       return;
